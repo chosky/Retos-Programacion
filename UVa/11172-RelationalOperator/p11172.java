@@ -1,12 +1,14 @@
-import java.util.Scanner;
+import java.util.*;
+import java.lang.*;
 
-class p11172{
+class Main{
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws java.lang.Exception {
         Scanner sc = new Scanner(System.in);
-	int cantidad = sc.nextInt();
+	long cantidad = sc.nextInt();
 	while(cantidad > 0){
-	    int first = sc.nextInt(), last = sc.nextInt();
+	    long first = sc.nextInt();
+	    long last = sc.nextInt();
 	    if(first < last) System.out.println("<");
 	    else if(first > last) System.out.println(">");
 	    else System.out.println("=");
