@@ -1,0 +1,47 @@
+/**
+ * Author: José David Henao 
+ * Helped by: http://codealltheproblems.blogspot.com.co/2015/06/uva-10003-cutting-sticks.html
+ */
+#include <iostream>
+#include <algorithm>
+#include <cstdio>
+using namespace std;
+
+#define INF 1<<30
+#define NMAX 55
+int parts[NMAX];
+int posivilidades[NMAX][NMAX];
+    
+
+int main(){
+  int l, n;
+
+  while(cin >> l && l != 0){
+    cin >> n;
+    if(n == 0) break;
+    for(int i = 1; i <= n; ++i) cin >> parts[i];
+    parts[0] = 0;
+    parts[++n] = l;
+
+    for(int i = 1; i <= n; ++i){
+
+      for(int j = i - 1; j >= 0; --j){
+
+	if(j + 1 == i) posivilidades[j][i] = 0;
+	else{
+	  posivilidades[j][i] = INF;
+
+	  for(int k = j + 1; k < i; ++k){
+	    //Genera el minimo de las posivilidades
+	    if(posivilidades[j][k] + posivilidades[k][i] < posivilidades[j][i])
+	      posivilidades[j][i] = posivilidades[j][k] + posivilidades[k][i];
+	  }
+	  posivilidades[j][i] += parts[i] - parts[j];
+	}
+      }
+    }
+
+    printf("The minimum cutting is %d.\n", posivilidades[0][n]);
+  }
+  return 0;
+}

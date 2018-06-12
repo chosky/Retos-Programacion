@@ -192,7 +192,7 @@ public boolean no23(int[] nums) {
 public int[] makeLast(int[] nums) {
   int tam = nums.length * 2;
   int[] newArr = new int [tam];
-  /**for(int i = 0; i < tam; ++i){ //ciclo opcional porque java llena un arreglo con 
+  /*for(int i = 0; i < tam; ++i){ //ciclo opcional porque java llena un arreglo con 
     newArr[i] = 0;              //0's por defecto (por eficiencia es mejor no ponerlo(LEER LA NOTA DEL EJERCICIO))
   }*/
   newArr[newArr.length - 1] = nums[nums.length - 1];

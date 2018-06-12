@@ -23,7 +23,7 @@ void limpiarGrafo(){
 }
 
 
-//Metodo de busqueda DFS para decir si es bicoloreable o no.
+//Metodo de busqueda BFS para decir si es bicoloreable o no.
 bool bfs(int start){
   for(int i = 0; i < MAX; ++i) colors[i] = -1; //descoloreo el grafo
   queue<int> cola;
